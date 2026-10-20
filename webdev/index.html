@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>CA2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="MainScript.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul id="menu">
+                <div class="navLeft">
+                <li onclick="modalAdd()">Add data</li>
+                <li onclick="searchModal()">Search by ID</li>
+                <li onclick="tagSearchModal()">Search by tags</li>
+            </div>
+            <div class="navRight" onclick="reset()">
+                Reset
+            </div>
+                
+            </ul>
+            
+        </nav>
+        <div class="heroImage"><div class="heroText"></div></div>
+        <div class="container">
+        <div id="div"></div> 
+        <div id="cards"></div>
+
+        
+            <dialog id="modal" class="modal">
+                <span class="modal-close">X</span>
+                <h2 class="modal-title"></h2>
+                <p class="modal-description"></p>
+                <div class="modal-images"></div>
+                <div class="modal-tags"></div>
+                <div class="modal-rating"></div>
+            </dialog>
+       
+            
+            <dialog id="modalAdd" class="modalAdd">
+                <span class="modal-close">X</span>
+                <h3>Add data</h3>
+                <form onsubmit="validation()">
+                <input type="number" id="addNumber" step='0.1' placeholder="Enter Number"><br><label id = "numberErrorMessage"></label><br>
+                <input type="text" id="addDescription" placeholder="Enter a Description"/><br><label id = "descriptionErrorMessage"></label><br>
+                <input type="submit" value="Submit">
+                </form>
+            </dialog>
+
+
+
+            <dialog id="modalExamples" class="modalExamples">
+                <span class="modal-close">X</span>
+                <h3>Add Examples</h3>
+                <form onsubmit="validationExamples()">
+                    <input type="hidden" id="idExample"/>
+                    <input type="text" id="exampleTitle" placeholder="Enter example title"/><br><label id="titleErrorMessage"></label><br>
+                    <input type="text" id="exampleDescription" placeholder="Enter example description"/><br><label id="descriptionErrorMessageEx"></label><br>
+                    <input type="url" id="exampleImage" placeholder="Insert example image"/><br><label id="imageErrorMessage"></label><br>
+                    <label for="exampleTags">Tags: </label>
+                    <select name="exampleTags" id="exampleTags"></select>
+                    <input type="submit" value="Submit" >
+                </form>
+            </dialog>
+
+
+
+
+            <dialog id="searchModal" class="searchModal">
+                <form onsubmit="validationSearch()">
+                    <span class="modal-close">X</span>
+                    <h3>Search By ID :</h3>
+                    <input type="number" id="idSearch" placeholder="Enter ID"><br>
+                    <label id="searchIDError"></label><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </dialog>
+
+
+
+            <dialog id="searchModalTags" class="searchModal">
+                <form onsubmit="validationSearchTags()">
+                    <span class="modal-close">X</span>
+                    <h3>Search By Tags :</h3>
+                    <input type="text" id="idSearchTags" placeholder="Enter Tag"><br>
+                    <label id="searchTagsError"></label><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </dialog>
+
+
+
+        <div id ="delete-modal">
+            <div class="modal-box">
+            <p> Are you sure you want to delete this example? </p>
+            <button onclick = "confirmDelete()">Yes Delete</button>
+            <button onclick ="closeDeleteModal()">Cancel</button>
+            </div>
+        </div>
+            <dialog id="modalBrush" class="modalBrush">
+                <span class="modal-close">X</span>
+                <h3>🖌️ Edit</h3>
+                <p id="brushLabel"></p>
+                <div id="brushBody"></div>
+                <hr>
+        <h4>Tag Manager</h4>
+                <input type="text" id="newTag" placeholder="New tag">
+                <button onclick="addTag()">Add Tag</button><br>
+                <select id="tagList" size="5"></select><br>
+                <input type="text" id="editTag" placeholder="Edit tag">
+                <button onclick="modifyTag()">Modify Tag</button>
+                <button onclick="deleteTag()">Delete Tag</button>
+            </dialog>
+    </div>
+    </body>
+
+
+
+</html>
 
